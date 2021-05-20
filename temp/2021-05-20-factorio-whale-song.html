@@ -1,0 +1,337 @@
+<!DOCTYPE html><html><head>
+      <title>2021-05-20-factorio-whale-song</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p>Here are the blueprints to build the breakouts of this factory.</p>
+<div class="mermaid">graph LR
+  RCU[&quot;30 Rocket control unit&quot;]--&gt;RPT[&quot;1 Rocket silo @30%&quot;]
+  LDS[&quot;20 Low density structure&quot;]--&gt;RPT
+  RFL[&quot;30 Rocket fuel&quot;]--&gt;RPT
+  LDS--&gt;SAT[&quot;1 Satellite @&lt;10%&quot;]
+  RFL--&gt;SAT
+  CPU[&quot;10 Processing unit&quot;]--&gt;RCU
+  CPU--&gt;SAT
+  classDef className fill:#bbf
+  class RCU,LDS,RFL className;
+  SP1[&quot;15 Speed module&quot;]--&gt;RCU
+  ADC30[&quot;30 Advanced circuit&quot;]--&gt;SP1
+  ADC12[&quot;12 Advanced circuit&quot;]--&gt;CPU
+  subgraph ADC[&quot;Advanced circuit&quot;]
+    ADC30
+    ADC12
+  end
+</div><ul>
+<li>30 Rocket control unit (<a href="https://fbe.teoxoy.com/?source=0eJy1ml9vmzAUxb+Ln0HyNdjYedzXmKopf7zOGoEIyLSoyncfKV3VatE4p3L71DbkHIzvz1z73ie1a8/xNKRuUpsnlfZ9N6rN1yc1psdu297+N11OUW1UmuJRFarbHm9/bccxHndt6h7L43b/I3WxNOpaqNQd4m+1ketDoWI3pSnFRe9/3yvUqR/nS/vu5jd/vTRSqIvaVLPiIQ1xv3ymXzQv37rzcReH2adQ86fp+QaHfv8zTuU8gmno2/LcpWm+I9ZZPOZs8jtbzLnK72ww5zq7c8CMbXZjhxm77MYVZtzkNtaYr8/tC4435PYFJ1g0bjwN22489cNU7mI73Vu1lsHq96bmX1OhVA2oaihVDapWjKoEULWmVD2oailVB6o6StWCqg2likaWp1TRyAqUqmCqRlPxiqpSbEkDqlJsSQ2qcmyBxBqKLRBYQ6EF8moostCposAC1wBDcQUuAYbCCoypiqIKXFYq7oUFinJMgaIMUiBQFQMUep8MT+gDZXBCZ56hCQ1RBiaQpYphCYS+5l5QSzSVsirLvaECKsvh5FFZ7h3VoLJcAmhRWS4DrFBZLgU0qCyXAwoqyyWBDpXlssAalLUUZYJSZinKUMgsBRnKmKUYQxGzFGJoFFiKMJRbSwEGhxbFF7oYWAovdC2wHF2gqmPgQtFyDFrwnTJkoQ/VMWCh8+8YrtBQdQxWKFWOoQpdABwDFbpWOYYpdFl1b5HiCg9lvXpASxwccqUHwPsTyh4W9f6EwodBvfOXPgJqnb/24VDr/NWPCrXOXv/QqHP2Agg85uwlEHiisxdB0Oj2Gasg4Nmflw+OZr2ERaxQa4NB9wWeSTTAI1dPHTuhyZtnEg30yNk7ejLhRd8TK8HqeNBs1DP5CFrw8Hw+glbmQ0aA4eOLQO0DwEPMwOwD4AOcwPCJFttCzc8nmmYF4qW/Oh50ExKY/QJa5ArNR5/SetQTr+rV4aCbqsBs1OFqsGY26vCRnWgKUbQgrg0/pejeRjSR5K+OCN1/iqZetmApUrT96IMCGleI3Hx1QOiWWjSz+4f7NjT1ukWTMtEUqmjrimh6UuFTBRFia796SobmhEK1DsGdQ+9ah6gHtR79QuzHVweEZoVCNRihHStCNRgZNDsTqsPIoJmUUC1G6EL5rsPoe2qnOJSpG+Mw/3LvlO5u7uHutMTNobPILV3If9uTX/uYx1OMh/LYH85tfI6ZlyvM6xWnObriON4Cdwmsh1tv83M39OZN83Shfs0my/i81E0wjanmnxvQ7XZ+OvPVX16vvl7/AGNAIbw=">blueprint on FBE</a>)</li>
+<li>20 Low density structure (<a href="https://fbe.teoxoy.com/?source=0eJytm9tu4zYQQP+FzxLAm25+7G8sgsJ22K0AWzYkpW0Q+N/L1E6aRTSjuWhfdrOWD8mhDmeoUG/mcHpJ17EfZrN7M/3xMkxm9+PNTP3PYX96/7/59ZrMzvRzOpvCDPvz+0/7aUrnw6kffpbn/fHPfkilN7fC9MNz+sfs3O2pMGmY+7lPdx72vcJcL1O+9DK8t5e/XrqqMK/575iRz/2YjvcP7QP6+vvwcj6kMTdUmPxp/18PT5e/y+c0ZNJrOc3jy3F+GVPulLDxsNa257Q9j/thul7GuTyk04wM2f3arP/WbGBRI5EaBXHyxEmqtg1UIA6pFg9pdeqbbUfkiSNqWVRHpHb8OHVUPe22gbLEITknHdPq1Lttte+oI2Jp31KpAu1r6txvq31DHZJA+5o49dtqX1NHxNKemkacQPtAnHq/rfbUHOYF1gdirt/WemoK8yzrqWnE86231JnfONdTR8SX3hInflPnqfnLc5QnB4lvPFX4sKnw1Ps4OAaUqlzwDCh1ZQqBHXpqmg1xy9CTNyEVA0pNdKFmQKn1QGjYoadWt6HdMvTUmi3wNSaWtnFTi6mVbeRYTN4BRM+OEnk/G8OWcSLv0yI/bVP3s3HTtE3ez0aO8OR9f2w4VPIDElZKpq6jseNQqQtpZTlU6kpaoaL++tXleORufYOi6RaHRhCKls04NIDQyFfArsaUk0cfK8U6lKWVJUI5VnVEJseplsjkGNXQmDXHp5rI5KS9isjk167rTM4WNBCZHJWIJtWoSbjzkPI1KhLKtCAT9QhllnBHUZFwqAehqEk4FFxFG1QlHAqu9408M5WuBqny1FS6BqTKc1MJp9EGNWqFCsdV7lTpwPuqkVtVOlCBRuMVaGujEKsDoQqxWgjaKsQCb9ZWIRboVavwChSg1Wh1H3+9QNVoVYNUjVYVSNVoFUGqRqsAUhVaPRaWJarCq8fCskDtFGI9FpYlqsIsMKydwiwwqp3CrA6EKsRqQajCK3AJ6BRaga52CqtAVTuNVCBU7hR47zsrVwrsqLOcDdX/dzv+S1IrNwq01Fm5UeDkO6swCsxUznKeT1TUoMqVQnoqVwp031m5UuAq5axcKXA9dU6hFCyqUzzyg011imd+YJpy+AkZykO/RapcK7iock7xsAJMKs4pUtXHU+BmiaupAWuEq0lYFcLV1IER5npNJRgQrubxhUe4mgcYDuFq9loW4SpSWIdgFWVhi2AVtiGyeYVsiGv4iRJKGbuMVaiGmBYUpiGi4QdGKPujZazGMwQr1wyRLCgSGkKVO4YFVq4YdhfIDcNuWblgiF9B7heyGES5XsjKhR/kIBTLy1S5XEhOiIpiEZErKuRC7IqKchHRCz9+QamYl7Fyv7DqCz+AQamZl7FfDfujP81pLPthSmP+x9KJ1C+36pc26+/gKt8nd979DaiPV6M+36E6Xq7X3Nj1tJ+TuT1JumHXe+FWejHNKZ0+OlF8XuA/L8gfTXN/LA/7UdjLer2XXhwrWR2+8BsEV0kPaa6/OFCxDmlyzuYS2iac7Xoq7u/37b68DliYv/J03OPYZqk73/iQ/7wvVKd9Dna++rfPq2+3fwGn27d/">blueprint on FBE</a>)</li>
+<li>30 Rocket fuel (<a href="https://fbe.teoxoy.com/?source=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">blueprint on FBE</a>)</li>
+<li>10 Processing unit (<a href="https://fbe.teoxoy.com/?source=0eJytmt1uozAUhN/F1yBhG7DJ5b7GKloR4qaWiEFAqq2qvPs6JW2zxY3noPQmbQLfcOwZ/zVvbNeeTD9YN7HNG7NN50a2+f3GRntwdXt5b3rtDdswO5kjS5irj5e/6nE0x11r3SE91s2zdSYV7Jww6/bmL9vw8zZhxk12smbm3bsvYX03+ks7d9Hzt6dcJuz18uqRezuYZv4wu0Jf/7jTcWcGL5Qw/6l9f8J+6Bozjhf2ydnJPw5ZNgNlxUNlFagqH6qag6r5Y5sYVC0eqSpA0fKRohwtVT1UFe1Wjan2lyt+DqiMyVQAS4AsngEwjsI4AMtQmIjDKpQl4yyNsvI4S6GsIs4qUFYZZ+UoS8VZqFu5jrNgtyLWB1ki7nzUqiLue/ip4q5HG0vETY/2oYh7HrWWiFsedbyIO75EUXHDo5kWcb+jQ42I2x0dAWXc7fDILAG7o36Xcb/Dc5mMGx6eY2Xc8Ry1vARGedSo8tbzT7adzJBaN5rB/xIaDOcsif+x5RLr3T3T5q3Fx57jc3NiWn/z0DnbpI0dmtN1RXO9TnxtYvYvtWvM/uuqLXm9pdG1O7jewlQLVLXCVJ/qcfJv7s1wGDr/mu5MO4W6KA91kW/Rj02i60+X+75vIbIVWtV9qe40hbX4Ci29riyxQkquLEuu0BLrysrpUmurKuhSKy1Y0pXWOlDRpa7zGbkqvUIqOMwCZd1O8PeG8bmDvo1N+XKHn2G8CsRxDKdBnMBwEsRJDCdAXA7h0IcrIBraryVEQ7tVQbRrfuI4jeEKEHebiWmo3dh3w/Tj7DkvNOUied+PocBk8KBbAsdat9FoOz//P9d+mNjfXYxxkC1ILRCckZbtWsoV1Hi75iRqBlILCrUCoSUFqkGookAVCNUUaAlCSbkqMKjKKNAchHIKVIJQUqhA9ytapkAoJVJgoBQlUOhzUvKENiglTmjPU9KEWpQSJjBLmpIlMPSaEiVwdNKUJIHDqKYECRzvNSVH6MykSUECk6QpSUJnZk2JEgezpClZ4mCYNCVMHExTBS74SmxNVpHmpBJbklWCvogMrqIDz4ttjoJL/ACNPiXFiy/IxYPr5wrbLaE9T8kR2vGaXLsCnxY7UUC3OTzL6L0U3CKH2KRMoUMUzyjzE7p74tltoI5mb0/HdD4Ut03ad+2df5yLeEt4QWfs4XnXnd5P4HlWbOl6wVOokFyxkMsTnpV0SbjAclmgV1R0RYUqqoVi6RX1ihqDB7EhSb2Q9AVuk/l7Xpubr4Ul7MUM42xgzXNVCSWk/7kYpq29U/3Vvz6vPp//AUDTphQ=">blueprint on FBE</a>, <a href="https://factoriolab.github.io/list?z=eJwrcPbVMjTQMlbLdNIy1HKKNwSTLu5ahmpphvFO8R7xnmrFRmplxgDSTgpk">calculations</a>)</li>
+<li>15 Speed module (<a href="https://fbe.teoxoy.com/?source=0eJytmttu4jAQht/F14mED0kcLvc1KrQKwUst5YByqLaqePc1DW3ZYPA/UXpDC873Tybz22OXD7avRnPqbDOw7QezZdv0bPvywXp7bIrq8t7wfjJsy+xgahaxpqgvfxV9b+p9ZZtjXBflq21MLNg5YrY5mL9sy8+7iJlmsIM1E+/ZdRE7tb0b2jYXPXd5ErF3to2VAx5sZ8rpo80V+f67Geu96ZxMxNyn9jO+/mTMIa7bw1gZFwlRUYOKYjVFzkFJuZpkzDegplpPMwMlk/UkFSiZrphZUDJbTVKAinr18pEhyXzt6gkqXiJbt3rCkutNPtfqCUuuN/sIUHG9yScBFdebejSoiMw8Q1c0/anthnhvquHJ1Mr/lxP3cikFm6LUjEJNUKompWAqqk2QmpOoHKOKzYLHFaZyCjUHoYIC1SBUUqAZCFX0Yg1DE3qthqEkWykQSnKVBKEkU4GeEjRPYVBJsRRoKEkxFBonxU9gQiXFTuCTlxQ3gSUqKWYCvSQpXgJNLylWAmcnSXESOI1KipHA+V5RfISuTIpkJNBJ6tZJf2w1mC62TW8694tvHvEWfnqPdeMm2nQY8HVK8HOccHgrmtJ1XqXtytEOn63XdZT4HmUqJ9G1jS1/xu1uAq5a1xC+Fu6yw9OopwzPuh91H7WiszMQndDRCkSnCzICojMyWoBkTSYnIDknkzVGTm5dPTpmd+xa9/q8OfQ03V8HbM1pvFw3l+E0mSwg046DX4fUlCpwB5FIWvRyYZIUTYYvTRJltUV3hAlluX0Y+RxKWW8FCtWkNC99mDlJ5eFmNvAsU8qqjO7DU8qq/NCqcyjFmhqF0py5cPZKacbkS42ZUozJ0XpPSc58WO5z6q01w31KLILn2BoDZigvx3gK5GUb8IZRHod4AsUJCJegOAnhNIpTEI7DyVvQeuZe9n1LlC3oPVOUTW8+v7qJMJvefvq96UHT+080ar0ho9Fka05GozWiBRnN/U72sDHrXeuZh6yiMetdSziMSzCcBHEphPNudj00bFFCY8NWJDRx2HoEPtX81ja1OdixjqeTBVvGp7YyD8/g50u7h3050jD2+Lpvx8+zjlzs6Gr+9sSjJuZqPMolXdC/mfPoybu7i3JF13vwvzKPoJoLurvbRdN3UbY3X12J2Jvp+qnf0lxluciEdD+XVbEqXL/mRv/6Hn0+/wO6iJqV">blueprint on FBE</a>, <a href="https://factoriolab.github.io/list?z=eJwrcC7TMjTVMlbLdNIyjDfUMlRLM4x3iveI91QrNlIrMwYAiZUIdQ__">calculations</a>)</li>
+<li>12 Advanced circuit (<a href="https://fbe.teoxoy.com/?source=">blueprint on FBE</a>)</li>
+<li>30 Advanced circuit (<a href="https://fbe.teoxoy.com/?source=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">blueprint on FBE</a>, <a href="https://factoriolab.github.io/list?z=eJwrcNIyNtAyVst09tAy1HKKNwST2WDSSUvLSS3NMN4p3iPeU63YSK3MGAASqwvk">calculations</a>)</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>
